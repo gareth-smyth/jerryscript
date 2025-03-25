@@ -55,7 +55,8 @@ jerry_port_source_read (const char *file_name_p, jerry_size_t *out_size_p)
     return NULL;
   }
 #endif /* __GLIBC__ */
-
+  printf ("Reading file: %s\n", file_name_p);
+  fflush (stdout);
   FILE *file_p = fopen (file_name_p, "rb");
 
   if (file_p == NULL)
@@ -97,7 +98,7 @@ jerry_port_source_free (uint8_t *buffer_p)
  * These functions provide generic implementation for paths and are only enabled when the compiler support weak symbols,
  * and we are not building for a platform that has platform specific versions.
  */
-#if !(defined(__unix__) || defined(__APPLE__) || defined(_WIN32))
+#if !(defined(__unix__) || defined(__APPLE__) || defined(_WIN32) || defined(__amigaos__))
 
 jerry_char_t *JERRY_ATTR_WEAK
 jerry_port_path_normalize (const jerry_char_t *path_p, jerry_size_t path_size)

@@ -1,12 +1,14 @@
 # Produced files
 .mbedignore
 build/*
+amiga-build
 
 # IDE related files
 nbproject
 *.sublime-project
 *.sublime-workspace
 .idea
+cmake-build-debug
 
 # Random Trash
 *.swp

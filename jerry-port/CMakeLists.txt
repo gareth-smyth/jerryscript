@@ -28,6 +28,7 @@ set(PORT_SOURCES
   win/jerry-port-win-date.c
   win/jerry-port-win-fs.c
   win/jerry-port-win-process.c
+  amiga/jerry-port-amiga-fs.c
 )
 
 # Define _BSD_SOURCE and _DEFAULT_SOURCE

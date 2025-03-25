@@ -15,7 +15,7 @@
 
 #include "jerryscript-port.h"
 
-#if defined(__unix__) || defined(__APPLE__)
+#if defined(__unix__) || defined(__APPLE__) || defined(__amigaos__)
 
 #include <sys/time.h>
 #include <time.h>

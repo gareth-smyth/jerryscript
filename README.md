@@ -5,6 +5,23 @@
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjerryscript-project%2Fjerryscript.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fjerryscript-project%2Fjerryscript?ref=badge_shield)
 [![IRC Channel](https://img.shields.io/badge/chat-on%20freenode-brightgreen.svg)](https://kiwiirc.com/client/irc.freenode.net/#jerryscript)
 
+**** 
+THIS IS A FORK OF https://github.com/jerryscript-project/jerryscript 
+
+Various changes have been made to make this cross-compile for an Amiga on OSX.
+
+It needs lots of clean up and fixing but works if built with an installed amiga-gcc build.
+
+to build for an Amiga
+
+`python3 tools/build.py --toolchain=amiga-toolchain.cmake --clean --debug --error-messages=ON --logging=ON --install --builddir amiga-build`
+
+to build for OSX use
+
+`python3 tools/build.py --clean --debug --error-messages=ON --logging=ON`
+****
+
+
 JerryScript is a lightweight JavaScript engine for resource-constrained devices such as microcontrollers. It can run on devices with less than 64 KB of RAM and less than 200 KB of flash memory.
 
 Key characteristics of JerryScript:
