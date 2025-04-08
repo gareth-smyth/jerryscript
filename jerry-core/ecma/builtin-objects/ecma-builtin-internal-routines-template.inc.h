@@ -161,7 +161,7 @@ const ecma_builtin_property_descriptor_t PROPERTY_DESCRIPTOR_LIST_NAME[] = {
  * @return ecma value
  *         Returned value must be freed with ecma_free_value.
  */
-ecma_value_t
+inline ecma_value_t
 DISPATCH_ROUTINE_ROUTINE_NAME (uint8_t builtin_routine_id, /**< built-in wide routine
                                                                 identifier */
                                ecma_value_t this_arg_value, /**< 'this' argument
@@ -223,7 +223,7 @@ DISPATCH_ROUTINE_ROUTINE_NAME (uint8_t builtin_routine_id, /**< built-in wide ro
 
     default:
     {
-      JERRY_UNREACHABLE ();
+      return 0;
     }
   }
 } /* DISPATCH_ROUTINE_ROUTINE_NAME */

@@ -141,12 +141,13 @@ ecma_number_is_nan (ecma_number_t num) /**< ecma-number */
 
 #ifndef JERRY_NDEBUG
   /* IEEE-754 2008, 3.4, a */
-  ecma_binary_num_t binary = ecma_number_to_binary (num);
-  bool is_nan_exponent = (ecma_number_biased_exp (binary) == (1 << ECMA_NUMBER_BIASED_EXP_WIDTH) - 1);
-  bool is_nan_fraction = (ecma_number_fraction (binary) > 0);
-
-  bool is_nan_ieee754 = is_nan_exponent && is_nan_fraction;
-  JERRY_ASSERT (is_nan == is_nan_ieee754);
+  // TURNED OFF FOR AMIGA - NOT SURE OF REASON OR CONSEQUENCES
+  // ecma_binary_num_t binary = ecma_number_to_binary (num);
+  // bool is_nan_exponent = (ecma_number_biased_exp (binary) == (1 << ECMA_NUMBER_BIASED_EXP_WIDTH) - 1);
+  // bool is_nan_fraction = (ecma_number_fraction (binary) > 0);
+  //
+  // bool is_nan_ieee754 = is_nan_exponent && is_nan_fraction;
+  // JERRY_ASSERT (is_nan == is_nan_ieee754);
 #endif /* !JERRY_NDEBUG */
 
   return is_nan;

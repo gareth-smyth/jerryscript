@@ -1342,6 +1342,7 @@ ecma_module_import (ecma_value_t specifier, /**< module specifier */
 
   if (JERRY_CONTEXT (module_import_callback_p) == NULL)
   {
+    printf ("Module import callback is not set\n");
     ecma_deref_ecma_string (specifier_p);
     goto error_module_instantiate;
   }
@@ -1367,12 +1368,14 @@ ecma_module_import (ecma_value_t specifier, /**< module specifier */
 
   if (module_p == NULL)
   {
+    printf ("Module import callback did not return a module\n");
     ecma_free_value (result);
     goto error_module_instantiate;
   }
 
   if (module_p->header.u.cls.u1.module_state != JERRY_MODULE_STATE_EVALUATED)
   {
+    printf ("Module state is wrong %i\n", module_p->header.u.cls.u1.module_state);
     ecma_deref_object (&module_p->header.object);
     goto error_module_instantiate;
   }

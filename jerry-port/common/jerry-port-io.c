@@ -25,7 +25,7 @@
 void JERRY_ATTR_WEAK
 jerry_port_log (const char *message_p) /**< message */
 {
-  fputs (message_p, stderr);
+  printf ("%s", message_p);
 } /* jerry_port_log */
 
 void JERRY_ATTR_WEAK

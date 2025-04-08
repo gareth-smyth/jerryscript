@@ -184,6 +184,7 @@ struct jerry_context_t
   uint32_t promise_callback_filters; /**< reported event types for promise callback */
   void *promise_callback_user_p; /**< user pointer for promise callback */
   jerry_promise_event_cb_t promise_callback; /**< user function for tracking Promise object operations */
+  char padding[4]; // REQUIRED to solve alignment issues on Amiga
 #endif /* JERRY_PROMISE_CALLBACK */
 
 #if JERRY_BUILTIN_TYPEDARRAY

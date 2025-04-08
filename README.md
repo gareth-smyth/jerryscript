@@ -14,11 +14,11 @@ It needs lots of clean up and fixing but works if built with an installed amiga-
 
 to build for an Amiga
 
-`python3 tools/build.py --toolchain=amiga-toolchain.cmake --clean --debug --error-messages=ON --logging=ON --install --builddir amiga-build`
+`python3 tools/build.py --toolchain=amiga-toolchain.cmake --clean --debug --error-messages=ON --logging=ON --line-info=ON --jerry-cmdline=ON --promise-callback=ON --install --builddir amiga-build`
 
 to build for OSX use
 
-`python3 tools/build.py --clean --debug --error-messages=ON --logging=ON`
+`python3 tools/build.py --clean --debug --error-messages=ON --logging=ON --line-info=ON --jerry-cmdline=ON --promise-callback=ON`
 ****
 
 

@@ -106,7 +106,7 @@ static char *normalize_path(const char *path)
   // Construct the normalized path
   for (int i = 0; i < segment_count; i++)
   {
-    if (output > result && *(output - 1) != '/') // Add slash if needed
+    if (output > result && *(output - 1) != '/' && *(output - 1) != ':') // Add slash if needed
     {
       *output++ = '/';
     }
@@ -126,16 +126,18 @@ jerry_port_path_normalize(const jerry_char_t *path_p, jerry_size_t path_size)
   char *path = (char *) malloc(path_size + 1);
   if (path == NULL)
   {
-    return NULL; // Handle allocation failure
+    return NULL;
   }
 
   memcpy(path, path_p, path_size);
   path[path_size] = '\0';
+  // printf("PORT_NORMAL_PRE : %s\n", path);
 
   char *normalized_path = normalize_path(path);
-  free(path); // Free the original input buffer
+  free(path);
+  // printf("PORT_NORMAL_POST: %s\n", normalized_path);
 
-  return (jerry_char_t *) normalized_path; // Caller is responsible for freeing this
+  return (jerry_char_t *) normalized_path;
 }
 
 void
@@ -147,9 +149,8 @@ jerry_port_path_free(jerry_char_t *path_p)
 jerry_size_t
 jerry_port_path_base(const jerry_char_t *path_p)
 {
-  printf("Full Path: %s\n", path_p);
-
   // Find the last occurrence of '/' or ':'
+  // printf("PORT_BASE: %s\n", path_p);
   const jerry_char_t *last_delim_p = NULL;
   for (const jerry_char_t *current_p = path_p; *current_p != '\0'; current_p++)
   {
@@ -172,8 +173,6 @@ jerry_port_path_base(const jerry_char_t *path_p)
   char base_part[base_length + 1];
   strncpy(base_part, (char *)path_p, base_length);
   base_part[base_length] = '\0';
-
-  printf("Base Part: %s\n", base_part);
 
   // Return the length of the base path
   return base_length;

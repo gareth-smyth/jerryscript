@@ -55,8 +55,6 @@ jerry_port_source_read (const char *file_name_p, jerry_size_t *out_size_p)
     return NULL;
   }
 #endif /* __GLIBC__ */
-  printf ("Reading file: %s\n", file_name_p);
-  fflush (stdout);
   FILE *file_p = fopen (file_name_p, "rb");
 
   if (file_p == NULL)
